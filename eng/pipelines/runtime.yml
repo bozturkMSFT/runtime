@@ -534,6 +534,21 @@ jobs:
       - OSX_x64
       liveRuntimeBuildConfig: release
 
+- template: /eng/pipelines/common/platform-matrix.yml
+  parameters:
+    jobTemplate: /eng/pipelines/libraries/build-job.yml
+    buildConfig: Debug
+    platforms:
+    - Linux_arm
+    - Linux_musl_arm64
+    - Linux_arm64
+    - Linux_musl_x64
+    - Linux_x64
+    - FreeBSD_x64
+    jobParameters:
+      testScope: innerloop
+      liveRuntimeBuildConfig: release
+
 #
 # Libraries Build that only run when libraries is changed
 #
